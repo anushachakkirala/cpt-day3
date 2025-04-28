@@ -36,7 +36,7 @@ print(fun(1,2,3,4,5))
 
  #recursive functions
 # 1.direct recursive
-# eg:factorial
+# eg1:factorial
 def fact(n):
     if n==0 or n==1:
         return 1
@@ -74,3 +74,36 @@ print(is_pal("racar"))
 print(is_pal("hello"))
 print(is_pal("level"))
 
+# 3.tail recursion
+def ftail(n,acc=1):
+    if n==0 or n==1:
+        return acc
+    return ftail(n-1,n*acc)
+print(ftail(5))
+
+#4.nested recursion
+def func(n):
+    if n>50:
+        return n-5
+    else:
+        return func(func(n+5)+5)
+print(func(30))
+
+#eg2-super factorial
+def sfact(n):
+    if n<=0:
+        return 1
+    return fact(n)*sfact(n-1)
+def fact(n):
+    if n<=1:
+        return 1
+    return n*fact(n-1)
+print(sfact(4))
+
+#eg3-power tower
+def powertower(a,n):
+    if n==1:
+        return a
+    return a**powertower(a,n-1)
+print(powertower(2,3))
+print(powertower(3,3))
